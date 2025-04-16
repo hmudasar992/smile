@@ -45,7 +45,7 @@ const SingleBlog = ({ data }: Props) => {
                 ? data?.cover?.url
                 : `https://admin.iillestfindsagency.com${data.cover.url}`
             }
-            height={350}
+            height={250}
             width={276}
             className="w-full h-full object-center object-cover"
             alt={`Image for ${data?.cover?.alternativeText || "default"}`}

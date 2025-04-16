@@ -19,7 +19,7 @@ const Features = () => {
   return (
     <section
       id="case-study"
-      className="py-10 lg:py-16"
+      className="py-10 2xl:py-16"
       aria-label="Case Studies"
     >
       <div className="container mx-auto px-4 md:px-6">

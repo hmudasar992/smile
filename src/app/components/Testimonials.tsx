@@ -44,7 +44,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-10 lg:py-16 lg:pb-0"
+      className="py-10 2xl:py-16 lg:pb-0"
       aria-label="Testimonials"
     >
       <div className="container mx-auto px-4 md:px-6">

@@ -5,13 +5,13 @@ import Button from "./Button";
 
 const HowItWorks = () => {
   return (
-    <section className="relative py-24">
+    <section className="relative lg:py-10 2xl:py-24">
       <Image
         src="/images/bg-layer.png"
         height={398}
         width={250}
         alt="bg-layer"
-        className="absolute right-0 lg:-top-72 bottom-0 w-[250px] lg:w-[398px]"
+        className="absolute right-0 lg:-top-54 2xl:-top-72 bottom-0 w-[250px] lg:w-[300px] 2xl:w-[398px]"
       />
       <div className="container px-6 mx-auto relative">
         <div className="flex flex-wrap lg:flex-nowrap md:gap-12 lg:gap-12 2xl:gap-20 ">
@@ -32,7 +32,7 @@ const HowItWorks = () => {
                 From Forgotten Chores to Happier Ever Afters
               </span>
             </h2>
-            <p className="font-medium mb-8 text-base md:text-[24px] lg:text-[28px] leading-[1.6] text-blue-grey ">
+            <p className="font-semibold text-[20px] lg:text-[24px] 2xl:text-[28px] text-blue-grey leading-[1.6] mb-8">
               Assign tasks. Complete them. Watch your partner’s smiley glow.
             </p>
             <Button text="Get Smilo’s Help – Try Free" varient="secondary" />

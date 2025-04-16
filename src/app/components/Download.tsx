@@ -3,7 +3,7 @@ import React from "react";
 
 const Download = () => {
   return (
-    <section id="downloads" className="py-32">
+    <section id="downloads" className="py-20 xl:py-24 2xl:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <header className="w-[755px] max-w-full mb-14 mx-auto">
           <div className="text-center">
@@ -27,8 +27,8 @@ const Download = () => {
             </div>
           </div>
         </header>
-        <div className="grid md:flex md:justify-between items-cente md:gap-3  2xl:gap-5 md:w-auto w-[350px] mx-auto">
-          <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[165px] lg:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-theme-2 md:mt-20">
+        <div className="grid md:flex md:justify-between items-cente md:gap-3 lg:gap-4 2xl:gap-5 md:w-[1036px] w-[350px] mx-auto">
+          <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[150px] lg:h-[150px] lg:p-8 2xl:w-[165px] 2xl:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-theme-2 md:mt-20">
             <Image
               src="/images/icons/download.svg"
               width={86}
@@ -43,7 +43,7 @@ const Download = () => {
             alt=""
             className="mt-16 ml-4 md:ml-0 mb-5 md:mt-auto md:mb-10 rotate-[69deg] md:rotate-0 w-[160px] md:w-[130px] lg:w-[200px] 2xl:w-[211px]"
           />
-          <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[165px] lg:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-[#FF6B6B] -mt-10 md:mt-0 ms-auto md:ms-0 md:mb-auto">
+          <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[150px] lg:h-[150px] lg:p-8 2xl:w-[165px] 2xl:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-[#FF6B6B] -mt-10 md:mt-0 ms-auto md:ms-0 md:mb-auto">
             <Image
               src="/images/icons/connect.svg"
               width={103}
@@ -59,7 +59,7 @@ const Download = () => {
             alt=""
             className="mb-auto mt-16 me-5 md:me-0 ms-auto md:ms-0 rotate-[105deg] md:rotate-0 w-[160px] md:w-[130px] lg:w-[200px] 2xl:w-[211px]"
           />
-          <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[165px] lg:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-theme-2 -mt-6 md:mt-20">
+          <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[150px] lg:h-[150px] lg:p-8 2xl:w-[165px] 2xl:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-theme-2 -mt-6 md:mt-20">
             <Image
               src="/images/icons/smile.svg"
               width={105}
