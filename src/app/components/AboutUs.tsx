@@ -5,7 +5,7 @@ import React from "react";
 const AboutUs = () => {
   return (
     <React.Fragment>
-      <section id="about-us" className="py-20 lg:py-28 xl:py-38 2xl:py-48">
+      <section id="about-us" className="py-16 lg:py-20 xl:py-28 2xl:py-36">
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-wrap lg:flex-nowrap lg:gap-12 xl:gap-16 2xl:gap-20 items-center">
             <div className="w-full lg:w-7/12">

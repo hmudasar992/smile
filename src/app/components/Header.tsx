@@ -52,7 +52,7 @@ const Header = () => {
       >
         <div
           className={`bg-white transition-all duration-300 ${
-            isScrolled ? "bg-white shadow-custom py-1 lg:py-2" : "py-3"
+            isScrolled ? "bg-white shadow-custom-hover py-1 lg:py-2" : "py-3"
           }`}
         >
           <div className="container mx-auto px-4 md:px-6">
@@ -60,14 +60,14 @@ const Header = () => {
               <div className="logo">
                 <Link href="/" prefetch>
                   <Image
-                    src="/images/logo.svg"
+                    src="/images/smyl-logo.png"
                     height={70}
                     width={99}
                     alt="logo"
                     className={` ransition-all duration-300 h-auto ${
                       isScrolled
-                        ? "w-[70px] md:w-[80px]"
-                        : "w-[80px] md:w-[99px]"
+                        ? "h-auto w-[70px] md:w-[80px]"
+                        : "h-auto w-[80px] md:w-[99px]"
                     }`}
                   />
                 </Link>

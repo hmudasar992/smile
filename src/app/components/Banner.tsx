@@ -6,7 +6,7 @@ import { AppleIcon, PlayStoreIcon } from "../SVG";
 
 const Banner = () => {
   return (
-    <header className="banner py-14 lg:pb-30 xl:pb-36 2xl:pb-48 lg:24 xl:py-28 2xl:py-32 relative">
+    <header className="banner py-14 lg:pb-30 xl:pb-36 2xl:pb-48 lg:24 xl:py-28 relative">
       <div className=" absolute left-0 right-0 bottom-0 top-0">
         <Image
           src="/images/gif-edited.gif"
@@ -18,7 +18,7 @@ const Banner = () => {
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="flex justify-between xl:flex-nowrap flex-wrap">
           <div className="max-w-[600px] xl:max-w-[733px] lg:pe-8 2xl:pr-10 xl:mb-0 mb-10">
-            <h1 className="text-white text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[70px] font-bold leading-[1.4] mb-3 xl:mb-5">
+            <h1 className="text-white text-[30px] md:text-[40px] lg:text-[48px] xl:text-[56px] 2xl:text-[65px] font-bold lmd:leading-[1.35] 2xl:eading-[1.4] mb-3 xl:mb-5">
               YOUR PARTNER’S MOOD, MADE SIMPLE
             </h1>
 

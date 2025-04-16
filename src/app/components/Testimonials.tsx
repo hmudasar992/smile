@@ -38,8 +38,9 @@ const testimonialData = [
 ];
 
 const Testimonials = () => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
+  const prevRef = useRef<HTMLButtonElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  const swiperRef = useRef<any>(null);
 
   return (
     <section
@@ -63,7 +64,7 @@ const Testimonials = () => {
             </div>
           </div>
         </header>
-        <div className="relative pt-32 pb-40">
+        <div className="relative pt-32 pb-28">
           <div className="bg-theme-2 w-[80%] absolute top-0 bottom-0 left-1/2 -translate-x-1/2"></div>
           <Swiper
             modules={[Autoplay, Mousewheel, Navigation]}
@@ -73,15 +74,8 @@ const Testimonials = () => {
               delay: 2000,
               disableOnInteraction: false,
             }}
-            onBeforeInit={(swiper) => {
-              if (typeof swiper.params.navigation !== "boolean") {
-                if (swiper.params.navigation) {
-                  swiper.params.navigation.prevEl = prevRef.current;
-                }
-                if (swiper.params.navigation) {
-                  swiper.params.navigation.nextEl = prevRef.current;
-                }
-              }
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
             }}
             navigation={{
               prevEl: prevRef.current,
@@ -93,7 +87,15 @@ const Testimonials = () => {
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="testimononial-slider"
+            onInit={(swiper) => {
+              if (typeof swiper.params.navigation !== "boolean") {
+                swiper.params.navigation!.prevEl = prevRef.current;
+                swiper.params.navigation!.nextEl = nextRef.current;
+                swiper.navigation.init();
+                swiper.navigation.update();
+              }
+            }}
+            className="testimonial-slider"
           >
             {testimonialData.map((data, i) => (
               <SwiperSlide key={i}>
@@ -137,6 +139,7 @@ const Testimonials = () => {
             {/* Prev Button */}
             <button
               ref={prevRef}
+              onClick={() => swiperRef.current?.slidePrev()}
               className="relative overflow-hidden group w-[50px] h-[50px] flex items-center justify-center rounded-full bg-white"
               aria-label="Previous"
             >
@@ -159,6 +162,7 @@ const Testimonials = () => {
             {/* Next Button */}
             <button
               ref={nextRef}
+              onClick={() => swiperRef.current?.slideNext()}
               className="relative overflow-hidden group w-[50px] h-[50px] flex items-center justify-center rounded-full"
               aria-label="Next"
             >

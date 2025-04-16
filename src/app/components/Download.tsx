@@ -61,10 +61,11 @@ const Download = () => {
           />
           <div className="w-[165px] h-[165px] md:w-[135px] md:h-[135px] lg:w-[150px] lg:h-[150px] lg:p-8 2xl:w-[165px] 2xl:h-[165px] flex-none rounded-[25px] flex items-center justify-center bg-theme-2 -mt-6 md:mt-20">
             <Image
-              src="/images/icons/smile.svg"
-              width={105}
-              height={74}
+              src="/images/eyes-logo.png"
+              width={512}
+              height={357}
               alt=""
+              className="max-w-full"
             />
           </div>
         </div>

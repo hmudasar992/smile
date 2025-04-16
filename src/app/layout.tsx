@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { AuthProvider } from "./providers";
 
 const schemaData = {
   "@context": "https://schema.org",
@@ -61,46 +62,44 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Schema.org structured data */}
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
       </head>
       <body className={`bg-white text-black`}>
-        {/* Inject GA4 tracking via Client Component */}
-
-        {/* Header with Suspense boundary */}
-        <Suspense
-          fallback={
-            <div className="h-[64px] md:h-[80px] lg:h-[148px] 2xl:h-[185px] bg-gray-100 animate-pulse" />
-          }
-        >
-          <Header />
-        </Suspense>
-
-        <main className="pt-[81px] md:pt-[94px]">
-          {/* Main content with Suspense boundary */}
+        <AuthProvider>
+          {/* Header with Suspense boundary */}
           <Suspense
             fallback={
-              <div className="min-h-screen flex items-center justify-center">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
-              </div>
+              <div className="h-[64px] md:h-[80px] lg:h-[148px] 2xl:h-[185px] bg-gray-100 animate-pulse" />
             }
           >
-            {children}
+            <Header />
           </Suspense>
-        </main>
 
-        {/* Footer with Suspense boundary */}
-        <Suspense
-          fallback={
-            <div className="h-[200px] bg-gray-100 animate-pulse mt-8" />
-          }
-        >
-          <Footer />
-        </Suspense>
+          <main className="pt-[81px] md:pt-[94px]">
+            {/* Main content with Suspense boundary */}
+            <Suspense
+              fallback={
+                <div className="min-h-screen flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+                </div>
+              }
+            >
+              {children}
+            </Suspense>
+          </main>
+
+          {/* Footer with Suspense boundary */}
+          <Suspense
+            fallback={
+              <div className="h-[200px] bg-gray-100 animate-pulse mt-8" />
+            }
+          >
+            <Footer />
+          </Suspense>
+        </AuthProvider>
       </body>
     </html>
   );

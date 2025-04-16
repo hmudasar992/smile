@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import BlogListServer from "./BlogListServer";
 import React, { Suspense } from "react";
 import Breadcrumb from "../components/Breadcrumb";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Expert Insights & Growth Strategies | Digital Marketing Blog Phoenix",
@@ -23,7 +25,14 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600;
 
-export default function BlogListPage() {
+export default async function BlogListPage() {
+  const cookieStore = await cookies();
+  const authToken = cookieStore.get("auth-token")?.value;
+
+  // Server-side redirect if not authenticated
+  if (!authToken) {
+    redirect("/login");
+  }
   return (
     <Suspense fallback={<BlogLoading />}>
       <BlogListServer />

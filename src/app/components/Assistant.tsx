@@ -5,7 +5,7 @@ import Button from "./Button";
 
 const Assistant = () => {
   return (
-    <section className="relative py-10 lg:py-16 2xl:py-20">
+    <section className="relative">
       <div className="container px-6 mx-auto relative">
         <div className="flex flex-wrap lg:flex-nowrap lg:gap-12 xl:gap-16 2xl:gap-20 items-center">
           <div className="w-full lg:w-6/12 text-right">
