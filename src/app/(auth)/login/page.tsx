@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/providers";
-import Button from "@/app/components/Button";
 import Image from "next/image";
 
 export default function LoginPage() {

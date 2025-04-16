@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Star } from "../SVG";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Mousewheel, Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper/types";
 
 import "swiper/css";
 import "swiper/css/mousewheel";
@@ -40,14 +41,10 @@ const testimonialData = [
 const Testimonials = () => {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section
-      id="testimonials"
-      className="py-10 2xl:py-16 lg:pb-0"
-      aria-label="Testimonials"
-    >
+    <section id="testimonials" className="py-10 2xl:py-16 lg:pb-0">
       <div className="container mx-auto px-4 md:px-6">
         <header className="w-[800px] max-w-full mb-10 mx-auto">
           <div className="text-center">

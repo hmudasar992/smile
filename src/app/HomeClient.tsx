@@ -9,7 +9,6 @@ import Blogs from "./components/Blogs";
 import HowItWorks from "./components/HowItWorks";
 import Assistant from "./components/Assistant";
 import Download from "./components/Download";
-import { useEffect } from "react";
 import { useAuth } from "./providers";
 
 export default function HomeClient() {
