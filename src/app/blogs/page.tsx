@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import BlogListServer from "./BlogListServer";
 import React, { Suspense } from "react";
-import Breadcrumb from "../components/Breadcrumb";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -44,7 +43,6 @@ function BlogLoading() {
   return (
     <React.Fragment>
       {/* Breadcrumb Skeleton */}
-      <Breadcrumb loading />
       <div className="container px-6 mx-auto">
         <div className="py-16 md:py-18 lg:py-20 pb-0">
           <div className="flex gap-10 flex-wrap lg:flex-nowrap">

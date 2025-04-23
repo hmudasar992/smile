@@ -78,7 +78,7 @@ async function fetchBlogAndList(slug: string) {
 }
 
 function BlogLoading() {
-  return <Breadcrumb loading />;
+  return <Breadcrumb loading searchQuery="" onSearchChange={() => {}} />;
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
