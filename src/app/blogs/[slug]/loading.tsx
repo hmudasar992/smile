@@ -1,12 +1,9 @@
 // app/blogs/[slug]/loading.tsx
-import Breadcrumb from "@/app/components/Breadcrumb";
 
 export default function Loading() {
   return (
     <div className="services">
       <div>
-        <Breadcrumb />
-
         <div className="py-16">
           <div className="container mx-auto px-4 md:px-6">
             <div className="border border-[#E3E3E3] rounded-[10px] p-4 animate-pulse">

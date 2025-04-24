@@ -9,15 +9,8 @@ import Blogs from "./components/Blogs";
 import HowItWorks from "./components/HowItWorks";
 import Assistant from "./components/Assistant";
 import Download from "./components/Download";
-import { useAuth } from "./providers";
 
 export default function HomeClient() {
-  const { isAuthenticated } = useAuth();
-
-  if (isAuthenticated === false) {
-    return null; // Redirect will be handled by ProtectedLayout
-  }
-
   return (
     <div className="bg-white" id="home">
       <Banner />

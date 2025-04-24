@@ -1,40 +1,37 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 type AuthContextType = {
-  isAuthenticated: boolean | null;
+  isAuthenticated: boolean | null; // Now accepts null for loading state
   login: () => void;
   logout: () => void;
 };
 
-const AuthContext = createContext<AuthContextType>({
-  isAuthenticated: null,
-  login: () => {},
-  logout: () => {},
-});
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    const checkAuth = () => {
-      const authState =
-        localStorage.getItem("isAuthenticated") === "true" ||
-        document.cookie
-          .split(";")
-          .some((item) => item.trim().startsWith("auth-token="));
-      setIsAuthenticated(authState);
+    const authCheck = () => {
+      const auth =
+        typeof window !== "undefined" &&
+        (localStorage.getItem("isAuthenticated") === "true" ||
+          document.cookie
+            .split(";")
+            .some((item) => item.trim().startsWith("auth-token=")));
+      setIsAuthenticated(!!auth);
     };
 
-    checkAuth();
+    authCheck();
   }, []);
 
   const login = () => {
     localStorage.setItem("isAuthenticated", "true");
-    document.cookie = "auth-token=authenticated; path=/; max-age=86400";
+    document.cookie = "auth-token=authenticated; path=/; max-age=3600"; // 1 hour
     setIsAuthenticated(true);
     router.push("/");
   };
@@ -54,4 +51,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
