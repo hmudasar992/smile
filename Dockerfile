@@ -26,16 +26,16 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/src/app/utils/imageLoader.js ./src/app/utils/
 
-# 7. Add health check and proper port configuration
-EXPOSE 3000
-ENV PORT 3000
-ENV HOSTNAME 0.0.0.0
-HEALTHCHECK --interval=30s --timeout=3s \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
+# # 7. Add health check and proper port configuration
+# EXPOSE 3000
+# ENV PORT 3000
+# ENV HOSTNAME 0.0.0.0
+# HEALTHCHECK --interval=30s --timeout=3s \
+#   CMD wget --no-verbose --tries=1 --spider http://localhost:3000 || exit 1
 
 # 8. Use node to run directly instead of npm for better signal handling
-CMD ["node", "node_modules/.bin/next", "start"]
-
+# CMD ["node", "node_modules/.bin/next", "start"]
+CMD ["npm", "start"]
 
 # run this command to create zip file
 # zip -r nextjs-app.zip . -x "node_modules/*" ".git/*"
