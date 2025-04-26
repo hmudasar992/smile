@@ -61,7 +61,7 @@ export function BlogListClient({ initialPosts }: BlogListProps) {
                     prefetch
                     key={i}
                   >
-                    <div className="rounded-[15] overflow-hidden mb-6 -mt-20">
+                    <div className="rounded-[15px] overflow-hidden mb-6 -mt-20">
                       {data?.cover?.url ? (
                         <ProgressiveImage
                           src={

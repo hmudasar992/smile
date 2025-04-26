@@ -37,7 +37,7 @@ const SingleBlog = ({ data }: Props) => {
       className="block shadow-blog border border-theme hover:shadow-blog-hover transition-all duration-300 p-6 rounded-[15px] w-full hover:-translate-y-2"
       prefetch
     >
-      <div className="rounded-[15] overflow-hidden mb-6 -mt-20">
+      <div className="rounded-[15px] overflow-hidden mb-6 -mt-20">
         {data?.cover?.url ? (
           <ProgressiveImage
             src={
