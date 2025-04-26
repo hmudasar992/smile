@@ -5,8 +5,6 @@ import Image from "next/image";
 
 import Button from "../components/Button";
 import { Discord, Instagram, Twitter } from "../SVG";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Contact Us | Digital Marketing Agency Phoenix",
@@ -44,13 +42,6 @@ const contactUsData = [
 ];
 
 const ContactUs = async () => {
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get("auth-token")?.value;
-
-  // Server-side redirect if not authenticated
-  if (!authToken) {
-    redirect("/login");
-  }
   return (
     <div>
       <div className="container px-6 mx-auto">

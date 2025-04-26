@@ -1,3 +1,4 @@
+import HomeClient from "./HomeClient";
 export const metadata = {
   title: "Smile",
   description:
@@ -14,17 +15,6 @@ export const metadata = {
   },
 };
 
-import { cookies } from "next/headers";
-import HomeClient from "./HomeClient";
-import { redirect } from "next/navigation";
-
 export default async function Home() {
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get("auth-token")?.value;
-
-  // Server-side redirect if not authenticated
-  if (!authToken) {
-    redirect("/login");
-  }
   return <HomeClient />;
 }

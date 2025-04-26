@@ -1,33 +1,53 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/app/providers";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const { login, isAuthenticated } = useAuth();
+  const { isAuthenticated, login, checkAuth } = useAuth();
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    checkAuth();
+    if (isAuthenticated) {
+      router.replace("/");
+    } else {
+      setIsLoading(false);
+    }
+  }, [isAuthenticated, checkAuth, router]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    console.log("Attempting login with:", { email, password });
 
     if (email === "smyl@gamil.com" && password === "121@121") {
-      login();
+      console.log("Credentials match");
+      try {
+        await login();
+        console.log("Login successful");
+      } catch (err) {
+        console.error("Login error:", err);
+        setError("Login failed");
+      }
     } else {
+      console.log("Credentials mismatch");
       setError("Invalid credentials");
     }
   };
 
-  // Show loading state while checking auth
-  if (isAuthenticated === null) {
-    return <div>Loading...</div>;
-  }
-
-  // Redirect is handled by middleware, just hide content if authenticated
-  if (isAuthenticated === true) {
-    return null;
+  if (isLoading || isAuthenticated === null) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+      </div>
+    );
   }
 
   return (

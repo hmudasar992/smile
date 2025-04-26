@@ -8,12 +8,10 @@ import { Blog } from "@/app/types/blog";
 import ProgressiveImage from "@/app/components/ProgressiveImage";
 import Link from "next/link";
 import Image from "next/image";
-import Breadcrumb from "@/app/components/Breadcrumb";
 import { apiURL, authToken } from "@/app/utils/constent";
 import axios from "axios";
 import { Metadata } from "next";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
+import Loading from "./loading";
 
 export const revalidate = 3600;
 
@@ -37,13 +35,7 @@ export async function generateMetadata({
   if (!blog) {
     return {};
   }
-  const cookieStore = await cookies();
-  const authToken = cookieStore.get("auth-token")?.value;
 
-  // Server-side redirect if not authenticated
-  if (!authToken) {
-    redirect("/login");
-  }
   return {
     title: blog.seo?.metaTitle || blog.title,
     description: blog.seo?.metaDescription || blog.description,
@@ -78,7 +70,7 @@ async function fetchBlogAndList(slug: string) {
 }
 
 function BlogLoading() {
-  return <Breadcrumb loading searchQuery="" onSearchChange={() => {}} />;
+  return <Loading />;
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
