@@ -21,7 +21,7 @@ export default function HomeClient() {
       <Testimonials />
       <Download />
       <FAQs />
-      <Blogs />
+      <Blogs/>
     </div>
   );
 }

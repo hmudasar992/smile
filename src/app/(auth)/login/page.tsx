@@ -27,7 +27,7 @@ export default function LoginPage() {
     setError("");
     console.log("Attempting login with:", { email, password });
 
-    if (email === "smyl@gamil.com" && password === "121@121") {
+    if (email === "smyl@gmail.com" && password === "121@121") {
       console.log("Credentials match");
       try {
         await login();

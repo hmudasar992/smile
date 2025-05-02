@@ -1,3 +1,5 @@
+// RootLayout.tsx
+
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import "./globals.css";
@@ -5,17 +7,19 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./providers";
 
+/*
+  GBP Schema Markup for LocalBusiness
+  (Currently not used - commented out for future use)
+
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Iillest Finds",
-  image:
-    "https://lh5.googleusercontent.com/p/AF1QipOKwofuCFKgPt4YMXjhSGnLdOAG5aWBYDtoiikL=w360-h270-k-no",
+  image: "https://lh5.googleusercontent.com/p/AF1QipOKwofuCFKgPt4YMXjhSGnLdOAG5aWBYDtoiikL=w360-h270-k-no",
   "@id": "https://iillestfindsmarketing.com/",
   url: "https://iillestfindsmarketing.com/",
   telephone: "+1 925-818-4494",
-  hasMap:
-    "https://www.google.com/maps/place/?q=place_id:ChIJfZaU62ndv60RszfmLmhUWZQ",
+  hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJfZaU62ndv60RszfmLmhUWZQ",
   aggregateRating: {
     "@type": "AggregateRating",
     ratingValue: "5",
@@ -24,18 +28,11 @@ const schemaData = {
   },
   address: {
     "@type": "PostalAddress",
-    streetAddress:
-      "Scottsdale, Greater Phoenix Area, Maricopa County, Arizona, USA",
+    streetAddress: "Scottsdale, Greater Phoenix Area, Maricopa County, Arizona, USA",
   },
   makesOffer: [
-    {
-      "@type": "Offer",
-      name: "Marketing agency",
-    },
-    {
-      "@type": "Offer",
-      name: "Service establishment",
-    },
+    { "@type": "Offer", name: "Marketing agency" },
+    { "@type": "Offer", name: "Service establishment" },
   ],
   sameAs: [
     "https://www.facebook.com/share/1AEuGAPGKZ",
@@ -48,12 +45,15 @@ const schemaData = {
     longitude: -111.95235559999999,
   },
 };
+*/
 
+// Page Metadata
 export const metadata: Metadata = {
   title: "Smile",
-  description: "Digital marketing and web development services in Phoenix.",
+  description: "Digital marketing and web development services in NY.",
 };
 
+// Root Layout Component
 export default function RootLayout({
   children,
 }: {
@@ -62,12 +62,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Inject LocalBusiness GBP Schema (Currently commented out)
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
+        */}
       </head>
-      <body className={`bg-white text-black`}>
+      <body className="bg-white text-black">
         <AuthProvider>
           {/* Header with Suspense boundary */}
           <Suspense
@@ -78,8 +81,8 @@ export default function RootLayout({
             <Header />
           </Suspense>
 
+          {/* Main content with Suspense boundary */}
           <main className="pt-[81px] md:pt-[94px]">
-            {/* Main content with Suspense boundary */}
             <Suspense
               fallback={
                 <div className="min-h-screen flex items-center justify-center">

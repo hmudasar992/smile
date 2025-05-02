@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="nextjs-app">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/nextjs-app.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
